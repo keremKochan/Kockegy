@@ -1,0 +1,64 @@
+﻿@model List<EntityLayer.Entities.Urun>
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="slider-area">
+    <!-- Slider -->
+    <div class="block-slider block-slider4">
+        <ul class="" id="bxslider-home4">
+            @foreach (var item in Model)
+            {
+                <li>
+                    <img src="~/Content/Image/@item.Resim" alt="Slide" style="width:400px;height:350px; margin:40px;">
+                    <div class="caption-group">
+                        <h2 class="caption title">
+                            @item.Ad <span class="primary"><strong></strong></span>
+                        </h2>
+                        <a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+    <!-- ./Slider -->
+</div> <!-- End slider area --> 
+
+<section>
+    <div class="container">
+        <div class="row">
+            @Html.Action("KategoriList", "Kategori")
+
+            <div class="col-sm-9 padding-right">
+                <div class="features_items">
+                    <!--features_items-->
+                <p></p>
+                    <h2 class="title text-center">ÜRÜNLERİMİZ</h2>
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-sm-4">
+                            <div class="product-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center">
+
+                                        <a href="/Urun/UrunDetay/@item.Id"><img src="~/Content/Image/@item.Resim" width="95" height="110" alt="" /></a>
+                                        <h2>@item.Fiyat TL</h2>
+                                        <p>@item.Ad</p>
+                                        <a href="/Urun/UrunDetay/@item.Id" class="btn btn-default add-to-cart">Ürün Detay</a>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    }
+
+
+                </div><!--features_items-->
+                @*@Html.Action("PopularProduct", "Product")*@
+
+            </div>
+        </div>
+    </div>
+</section>

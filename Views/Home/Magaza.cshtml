@@ -1,0 +1,82 @@
+﻿@model List<EntityLayer.Entities.Urun>
+
+@{
+    ViewBag.Title = "Magaza";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="shop" class="container">
+
+    <div class="row">
+        <!-- sidebar start -->
+        <br />
+        <br />
+        <div style="font-size:35px;font-family:Calibri;padding-left:500px;"> MAĞAZA  </div>
+        <br />
+        <br />
+    </div>
+    <!-- sidebar end -->
+    <!-- right column start -->
+    <div class="col-md-9">
+        <div class="row">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                    <div class="text-center product-item">
+                        <div class="product-item-top">
+                            <img alt="" class="img-responsive" src="~/Content/Image/@item.Resim" style="width:245px;height:200px">
+                            <div class="mask"></div>
+                            <ul class="list-unstyled list-inline">
+                                <li><a href="/Urun/UrunDetay/@item.Id"><i class="fa fa-link fa-fw"></i></a></li>
+                                <li><a href="/Sepet/SepeteEkle/@item.Id"><i class="fa fa-cart-plus fa-fw"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="product-item-inner">
+                            <h3 class="product-title"><a href="#">@item.Ad</a></h3>
+                            <p class="product-price">₺ @item.Fiyat</p>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+
+
+            <div class="col-md-12 wow fadeIn" style="visibility: hidden; animation-name: none;">
+                <div id="pagination" class="row text-center">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li class="disabled">
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true">«</span>
+                                </a>
+                            </li>
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li class="disabled"><a href="#">...</a></li>
+                            <li><a href="#">20</a></li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true">»</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- right column end -->
+    </div>
+
+
+
+</section>
+
+

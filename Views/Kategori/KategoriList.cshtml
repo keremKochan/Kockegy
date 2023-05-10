@@ -1,0 +1,19 @@
+﻿@model List<EntityLayer.Entities.Kategori>
+
+
+    <div class="col-sm-3" style="margin-top:0px">
+        <div class="left-sidebar">
+            <div class="brands_urunler">
+                <h2>KATEGORİLER</h2>
+                <br />
+                <div class="brands_ad" style="left:40px">
+                    @foreach (var item in Model)
+                    {
+                        <ul class="nav nav-pills nav nav-stacked">
+                            <a href="/Kategori/Details/@item.Id" class="list-group-item"><span class="pull-right">(@item.Urunler.Count)</span>@item.Ad</a>
+                        </ul>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>

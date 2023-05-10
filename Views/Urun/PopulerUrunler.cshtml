@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "PopulerUrunler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="maincontent-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="latest-product">
+                    <h2 style="font-family:Calibri" class="section-title">Popüler Ürünler</h2>
+                    <div class="product-carousel">
+
+                        @foreach (var item in ViewBag.populer)
+                        {
+                            <div class="single-product">
+                                <div class="product-f-image" style="">
+                                    <a href="/Urun/UrunDetay/@item.Id"><img src="/Content/Image/@item.Resim" alt="" style="width:300px;height:265px;"></a>
+                                    <div class="product-hover">
+                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Sepete Ekle</a>
+                                        <a href="/Urun/UrunDetay/@item.Id" class="view-details-link"><i class="fa fa-link"></i> Ayrıntıla   r</a>
+                                    </div>
+                                </div>
+
+                                <h2><a href="single-product.html">@item.Ad</a></h2>
+                                @* Href single producta gidiyor ayrıntılar sayfası *@
+
+                                <div class="product-carousel-price">
+                                    <ins>@item.Fiyat₺</ins> 
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- End main content area -->

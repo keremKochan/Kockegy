@@ -1,0 +1,86 @@
+﻿@model EntityLayer.Entities.Kullanici
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Login | E-Shopper</title>
+    <link href="/Kockegy3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Kockegy3/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/Kockegy3/css/prettyPhoto.css" rel="stylesheet">
+    <link href="/Kockegy3/css/price-range.css" rel="stylesheet">
+    <link href="/Kockegy3/css/animate.css" rel="stylesheet">
+    <link href="/Kockegy3/css/main.css" rel="stylesheet">
+    <link href="/Kockegy3/css/responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="Kockegy3/js/html5shiv.js"></script>
+    <script src="Kockegy3/js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
+
+<body>
+
+    <section id="form">
+        <!--form-->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 col-sm-offset-1">
+                    <div class="login-form">
+                        <!--login form-->
+                        <h2>Hesabınıza Giriş Yapın</h2>
+                        <div class="alert alert-info"><h4>@TempData["Mesaj"]</h4></div>
+                        <form action="/Hesap/Login" method="post">
+                            <input type="email" placeholder="Eposta" name="Email" />
+                            <input type="password" placeholder="Şifre" name="Sifre" />
+                            <button type="submit" class="btn btn-default">Giriş Yap</button>
+                        </form>
+                    </div><!--/login form-->
+                </div>
+                <div class="col-sm-1">
+                    <h2 class="or">YA DA</h2>
+                </div>
+                <div class="col-sm-4">
+                    <div class="signup-form">
+                        <!--sign up form-->
+                        <h2>Yeni Kullanıcı!</h2>
+                        <div class="alert alert-info"><h4>@TempData["Mesaj2"]</h4></div>
+                        <form action="/Hesap/Kayit" method="post">
+                            <input type="text" placeholder="Ad" name="Ad" />
+                            <input type="text" placeholder="Soyad" name="Soyad" />
+                            <input type="email" placeholder="Eposta" name="Email" />
+                            <input type="text" placeholder="Kullanıcı Adı" name="KullaniciAdi" />
+                            <input type="password" placeholder="Şifre" name="Sifre" />
+                            <input type="password" placeholder="Şifre Tekrar" name="SifreTekrar" />
+                            <button type="submit" class="btn btn-default">Üye Ol</button>
+
+                        </form>
+                    </div><!--/sign up form-->
+                </div>
+            </div>
+        </div>
+    </section><!--/form-->
+
+
+
+
+
+    <script src="Kockegy3/js/jquery.js"></script>
+    <script src="Kockegy3/js/price-range.js"></script>
+    <script src="Kockegy3/js/jquery.scrollUp.min.js"></script>
+    <script src="Kockegy3/js/bootstrap.min.js"></script>
+    <script src="Kockegy3/js/jquery.prettyPhoto.js"></script>
+    <script src="Kockegy3/js/main.js"></script>
+</body>
+</html>

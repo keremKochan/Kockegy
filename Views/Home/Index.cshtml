@@ -1,0 +1,72 @@
+﻿@using EntityLayer.Entities
+@model List<Urun>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+    <div class="slider-area">
+    <!-- Slider -->
+    <div class="block-slider block-slider4">
+        <ul class="" id="bxslider-home4">
+            @foreach (var item in Model)
+            {
+                <li>
+                    <img src="~/Content/Image/@item.Resim" alt="Slide" style="width:400px;height:350px; margin:40px;">
+                    <div class="caption-group">
+                        <h2 class="caption title">
+                            @item.Ad <span class="primary"><strong></strong></span>
+                        </h2>
+                        <a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+    <!-- ./Slider -->
+</div> <!-- End slider area -->
+
+
+<div class="promo-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="single-promo promo1">
+                    <i class="fa fa-refresh"></i>
+                    <p>10 Gün İçinde İade</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="single-promo promo2">
+                    <i class="fa fa-truck"></i>
+                    <p>Ücretsiz Kargo</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="single-promo promo3">
+                    <i class="fa fa-lock"></i>
+                    <p>Güvenli Ödeme</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="single-promo promo4">
+                    <i class="fa fa-gift"></i>
+                    <p>Yeni Ürünler</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End promo area -->
+<div class="brands-area"></div>
+
+
+
+@Html.Action("Partial2", "Home")
+
+<div class="brands-area"></div>
+
+@Html.Action("Partial1", "Home")

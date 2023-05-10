@@ -1,0 +1,25 @@
+﻿@using EntityLayer.Entities
+@model List<Urun>
+@{
+    ViewBag.Title = "KritikStok";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>Ürün Bilgisi</th>
+        <th>Stok Sayısı</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>@item.Ad</td>
+            <td>@item.Stok</td>
+        </tr>
+
+    }
+</table>
+
+

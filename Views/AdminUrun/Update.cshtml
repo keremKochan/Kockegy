@@ -1,0 +1,73 @@
+﻿@model EntityLayer.Entities.Urun
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<form method="post" enctype="multipart/form-data">
+
+    @Html.AntiForgeryToken()
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="form-group">
+                    <label>Ad</label>
+                    <input type="text" class="form-control" name="Ad" value="@Model.Ad" />
+
+                </div>
+                <div class="form-group">
+                    <label>Açıklama</label>
+                    <input type="text" class="form-control" name="Aciklama" value="@Model.Aciklama" />
+
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Resim, "Resim", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <input type="file" class="form-control" name="File" />
+                </div>
+                <div class="form-group">
+                    <label>Fiyat</label>
+                    <input type="text" class="form-control" name="Fiyat" value="@Model.Fiyat" />
+
+                </div>
+                <div class="form-group">
+                    <label>Stok</label>
+                    <input type="text" class="form-control" name="Stok" value="@Model.Stok" />
+
+                </div>
+
+
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Populer, "Popüler", htmlAttributes: new { @class = "control-label col-md-2" })
+
+                    @Html.EditorFor(x => x.Populer)
+
+
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Onaylimi, "Onay", htmlAttributes: new { @class = "control-label col-md-2" })
+
+                    @Html.EditorFor(x => x.Onaylimi)
+
+
+                </div>
+                <div class="form-group">
+                    <label>Kategori</label>
+                    @Html.DropDownListFor(x => x.KategoriId, (List<SelectListItem>)ViewBag.ktgr, new { @class = "form-control" })
+
+                </div>
+                <button class="btn btn-primary" type="submit">Güncelle</button>
+
+                <a href="/AdminUrun/Index/" class="btn btn-success" style="margin-left:12px;">Ürün Listesi</a>
+
+            </div>
+        </div>
+    </div>
+
+</form>
+

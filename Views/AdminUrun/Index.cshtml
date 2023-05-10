@@ -1,0 +1,59 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model IPagedList<EntityLayer.Entities.Urun>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<a href="~/AdminUrun/Create" class="btn btn-primary">Ekle</a>
+<br /> <br />
+<table class="table table-bordered",>
+    <tr>
+        <th>Ad</th>
+        <th>Açıklama</th>
+        <th>Fiyat</th>
+        <th>Stok</th>
+        <th>Popüler</th>
+        <th>Onay</th>
+        <th>Resim</th>
+        <th>Kategori</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Ad</td>
+            <td>@item.Aciklama</td>
+            <td>@item.Fiyat</td>
+            <td>@item.Stok</td>
+            <td>
+                @if (item.Populer == true)
+                {
+                    <label class="btn btn-success">Evet</label>
+                }
+                else
+                {
+                    <label class="btn btn-danger">Hayır</label>
+                }
+            </td>
+            <td>
+                @if (item.Onaylimi == true)
+                {
+                    <label class="btn btn-success">Evet</label>
+                }
+                else
+                {
+                    <label class="btn btn-danger">Hayır</label>
+                }
+            </td>
+            <td><img src="~/Content/Image/@item.Resim" width="80" height="80" />Resim</td>
+            <td>@item.Kategori.Ad</td>
+            <td>@Html.ActionLink("Sil", "Delete", new { item.Id }, new { @class = "btn btn-danger", onclick = "return confirm ('Silmek İstiyor musunuz')" })</td>
+            <td><a class="btn btn-primary" href="/AdminUrun/Update/@item.Id">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+@Html.PagedListPager(Model, sayfa => Url.Action("Index", new { sayfa }), PagedListRenderOptions.Classic);
